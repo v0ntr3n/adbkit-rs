@@ -1,0 +1,39 @@
+[package]
+name = "adbkit"
+version = "3.3.9"
+edition = "2021"
+rust-version = "1.75"
+license = "Apache-2.0"
+repository = "https://github.com/v0ntr3n/adbkit-rs"
+description = "A Rust client for the Android Debug Bridge (ADB) server."
+keywords = ["adb", "adbkit", "android", "logcat", "monkey"]
+readme = "README.md"
+
+[lib]
+name = "adbkit"
+path = "src/lib.rs"
+
+[[bin]]
+name = "adbkit"
+path = "src/bin/adbkit.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+tokio-stream = { version = "0.1", features = ["net"] }
+futures = "0.3"
+thiserror = "2"
+regex = "1"
+getrandom = "0.2"
+log = "0.4"
+env_logger = "0.11"
+base64 = "0.22"
+rsa = "0.9"
+md-5 = "0.10"
+clap = { version = "4", features = ["derive"] }
+bytes = "1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
+
+[profile.release]
+lto = true
